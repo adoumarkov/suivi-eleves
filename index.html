@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sondage Difficultés - Maths & PC</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #f3f4f6;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); padding: 15px; color: #333; }
+        .container { max-width: 500px; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: auto; }
+        h2 { color: var(--primary-color); text-align: center; }
+        .step { display: none; margin-top: 20px; }
+        .step.active { display: block; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input, select { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 8px; background: #fafafa; padding: 10px; border-radius: 6px; }
+        .checkbox-item { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        button { width: 100%; padding: 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+        .btn-next { background: var(--primary-color); color: white; }
+        .btn-send { background: #059669; color: white; margin-top: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Espace Élèves</h2>
+    <form id="student-form">
+        <div class="step active" id="step1">
+            <label>Ton Nom Complet :</label>
+            <input type="text" id="student_name" placeholder="Ex: Jean Kouassi" required>
+            
+            <label>Ta Classe :</label>
+            <select id="student_class" required onchange="updateLessons()">
+                <option value="">-- Choisis ta classe --</option>
+                <option value="5eme">Cinquième (5ème)</option>
+                <option value="4eme">Quatrième (4ème)</option>
+                <option value="3eme">Troisième (3ème)</option>
+                <option value="2ndeC">Seconde C</option>
+                <option value="TerminaleD">Terminale D</option>
+            </select>
+            <button type="button" class="btn-next" onclick="nextStep()">Continuer</button>
+        </div>
+
+        <div class="step" id="step2">
+            <h3 id="display-class"></h3>
+            
+            <label>Quelles leçons sont difficiles en MATHS ?</label>
+            <div id="math-lessons" class="checkbox-group">
+                </div>
+
+            <br>
+
+            <label>Quelles leçons sont difficiles en PC ?</label>
+            <div id="pc-lessons" class="checkbox-group">
+                </div>
+
+            <button type="submit" class="btn-send">Envoyer mes réponses</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // --- CONFIGURATION EMAILJS (À REMPLIR) ---
+    (function() {
+        emailjs.init("ldMwKTIZIz7napRyY"); // Remplace par ta Public Key
+    })();
+
+    const program = {
+        "5eme": {
+            maths: ["Nombres décimaux", "Symétrie centrale", "Priorités opératoires"],
+            pc: ["L'eau dans notre environnement", "Mélanges et corps purs"]
+        },
+        "4eme": {
+            maths: ["Nombres relatifs", "Théorème de Pythagore", "Calcul littéral"],
+            pc: ["Molécules et atomes", "Lois de l'électricité"]
+        },
+        "3eme": {
+            maths: ["Racines carrées", "Thalès", "Équations & Inéquations", "Calcul vectoriel"],
+            pc: ["Poids et Masse", "Solutions acides et basiques", "Lentilles"]
+        },
+        "2ndeC": {
+            maths: ["Ensembles de nombres", "Fonctions de référence", "Géométrie analytique"],
+            pc: ["Quantité de matière", "Cinématique", "Réactions chimiques"]
+        },
+        "TerminaleD": {
+            maths: ["Nombres Complexes", "Limites et Continuité", "Primitives & Intégrales", "Probabilités"],
+            pc: ["Acides bases", "Estérification", "Chutes verticales", "Circuits RLC"]
+        }
+    };
+
+    function updateLessons() {
+        const classe = document.getElementById('student_class').value;
+        const mathDiv = document.getElementById('math-lessons');
+        const pcDiv = document.getElementById('pc-lessons');
+        
+        mathDiv.innerHTML = "";
+        pcDiv.innerHTML = "";
+
+        if(program[classe]) {
+            program[classe].maths.forEach(lesson => {
+                mathDiv.innerHTML += `<label class="checkbox-item"><input type="checkbox" name="maths" value="${lesson}"> ${lesson}</label>`;
+            });
+            program[classe].pc.forEach(lesson => {
+                pcDiv.innerHTML += `<label class="checkbox-item"><input type="checkbox" name="pc" value="${lesson}"> ${lesson}</label>`;
+            });
+        }
+    }
+
+    function nextStep() {
+        const name = document.getElementById('student_name').value;
+        const classe = document.getElementById('student_class').value;
+        if(name && classe) {
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+            document.getElementById('display-class').innerText = "Programme de la classe : " + classe;
+        } else {
+            alert("Merci de remplir ton nom et ta classe.");
+        }
+    }
+
+    document.getElementById('student-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const selectedMaths = Array.from(document.querySelectorAll('input[name="maths"]:checked')).map(cb => cb.value).join(", ");
+        const selectedPC = Array.from(document.querySelectorAll('input[name="pc"]:checked')).map(cb => cb.value).join(", ");
+
+        const templateParams = {
+            nom: document.getElementById('student_name').value,
+            classe: document.getElementById('student_class').value,
+            maths: selectedMaths || "Aucune",
+            pc: selectedPC || "Aucune"
+        };
+
+        emailjs.send('service_fhn0sjt', 'template_6m98e5q', templateParams)
+            .then(() => {
+                alert('Merci ! Tes réponses ont été envoyées à ton professeur.');
+                location.reload();
+            }, (error) => {
+                alert('Erreur d\'envoi... Vérifie ta connexion.');
+                console.log('Fichier:', error);
+            });
+    });
+</script>
+
+</body>
+</html>
