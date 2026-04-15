@@ -78,9 +78,96 @@
     (function() { emailjs.init("ldMwKTIZIz7napRyY"); })();
 
     const program = {
-        "5eme": { maths: ["Nombres décimaux", "Symétrie centrale"], pc: ["L'eau", "Mélanges"] },
-        "4eme": { maths: ["Pythagore", "Calcul littéral"], pc: ["Atomes", "Électricité"] },
-        "3eme": { maths: ["Thalès", "Racines carrées", "Équations"], pc: ["Poids", "Acides/Bases"] },
+        "5eme": { 
+            maths: [
+                "Nombres premiers (Puissance entière, règle de priorité, division dans N, décomposition en facteurs premiers)",
+                "Nombres décimaux relatifs (Entiers relatifs, comparaison, somme algébrique, produit, équation x + b = a)",
+                "Fractions (Puissance entière d'une fraction, différence, produit, encadrement par deux décimaux)",
+                "Proportionnalité (Vitesse moyenne, débit, masse volumique, représentation graphique, coefficient)",
+                "Statistique (Population, caractère, modalité, diagrammes à bandes et en bâtons, effectifs et fréquences)",
+                "Angles (Angles adjacents, complémentaires, supplémentaires, opposés par le sommet, somme des angles d'un triangle)",
+                "Segments (Caractérisation d'un segment, médiatrice, milieu, alignement de trois points)",
+                "Triangles (Inégalité triangulaire, droites particulières, triangles isocèle, équilatéral et rectangle, bissectrice)",
+                "Cercles (Point intérieur/extérieur, cercle circonscrit à un triangle, disque)",
+                "Parallélogrammes particuliers (Rectangle, losange, carré, propriétés des diagonales, périmètre et aire)",
+                "Prisme droit (Patron, faces latérales, bases, arêtes, sommets, aire latérale, aire totale et volume)",
+                "Figures symétriques par rapport à une droite (Symétrique d'un point, d'une droite, d'un segment, d'un angle, d'un cercle)"
+            ],
+            pc: [
+                "Adaptation d’un générateur à un récepteur (Tension nominale, tension d’usage, sous-tension, surtension, adaptation)",
+                "Association de lampes électriques (Circuit en série, circuit en dérivation, lampe défectueuse, court-circuit)",
+                "Association de piles en série (Série concordance, tension totale, série opposition, lampe torche)",
+                "Dilatation des solides (Dilatation linéaire et volumique, bilame, joint de dilatation, emmanchement forcé)",
+                "Dilatation des liquides (Vase d'expansion, thermomètre à liquide, comparaison avec les solides)",
+                "Dilatation des gaz (Dilatation de l'air, dangers en vase clos, bombe aérosol, règles de sécurité)",
+                "Intensité du courant électrique (Unité légale, ampèremètre, lois des intensités en série et dérivation)",
+                "Tension électrique (Définition entre deux points, unité, voltmètre, lois des tensions en série et dérivation)",
+                "Pression atmosphérique (Unités de pression, baromètre, manomètre métallique, dépression et surpression, météo)",
+                "Les mélanges (Mélange homogène/hétérogène, soluté, solvant, émulsion, décantation, filtration, distillation, vaporisation)",
+                "Atomes et molécules (Symboles, formules chimiques, modèles moléculaires, corps pur simple et composé)",
+                "Combustion du carbone (Dioxygène, équation-bilan, conservation de la masse, pictogrammes, combustion incomplète)",
+                "Combustion du soufre (Identification du produit, équation-bilan, pluies acides, protection de l'environnement)"
+            ] },
+        "4eme": { 
+            maths: [
+                "Nombres décimaux relatifs (Puissance de 10, notation scientifique, ordre n, produit a.10^p x b.10^q)",
+                "Nombres rationnels (PGCD, PPCM, simplification de fraction, inverse, approximation décimale, arrondi, troncature)",
+                "Équations et Inéquations (Inconnue, membres, propriétés des égalités/inégalités, résolution dans Q, droite graduée)",
+                "Calcul littéral (Développement, produits remarquables, factorisation simple et expressions remarquables)",
+                "Statistique (Mode d'une série, tableau des effectifs/fréquences, moyenne, diagramme semi-circulaire)",
+                "Angles (Angles au centre, alternes-internes, correspondants, arcs de cercles et cordes de même longueur)",
+                "Distances (Distance d'un point à une droite, distance de deux parallèles, bissectrice d'un angle)",
+                "Cercles et Triangles (Tangente à un cercle, droite des milieux, centre de gravité, orthocentre, centre du cercle inscrit)",
+                "Vecteurs (Sens, direction, longueur, vecteurs égaux/opposés, égalité de Chasles, parallélogramme)",
+                "Perspective cavalière (Règles de représentation, pavé droit, prisme droit, cylindre droit, plans horizontaux/verticaux)",
+                "Symétries et Translations (Application du plan, symétrie orthogonale et centrale, translation, tableau de correspondance)"
+            ], 
+            pc: [
+                "Les phases de la Lune et les éclipses  (ombre propre, ombre portée, phase de la lune, éclipse solaire, éclipse lunaire)",
+                "Analyse et synthèse de la lumière blanche ( les différentes couleurs qui composent la lumière blanche , Les couleurs de l’arc-en-ciel, le rôle d’un filtre)",
+                "Atomes et Molécules (Symboles chimiques, formules chimiques, modèles moléculaires)",
+                "Sources et Récepteurs de lumière (Sources primaires et secondaires, récepteurs de lumière)",
+                "Propagation rectiligne de la lumière (Le rayon lumineux, faisceau de lumière, ombre et pénombre)",
+                "L'œil (Description de l'œil, rôle du diaphragme et de la lentille, formation de l'image)",
+                "Tension alternative sinusoïdale  (L'ampèremètre, la période, la fréquence, la tension efficace)",
+                "Production d’une tension alternative (la nature de la tension produite par un aimant et une bobine, la tension (continue) produite à l’oscilloscope, une tension continue d’une tension alternative)",
+                "Transformation, redressement et lissage d’une tension alternative sinusoïdale (Amplificateur, diode, condensateur, pont de diode, tension entrée/sortie)",
+                "Aimants et Bobines (Les pôles d'un aimant, les interactions entre aimants droits, Les faces d’une bobine parcourue par un courant électrique, la bobine)",
+                "Les dangers du courant du secteur (l'électrisation, le court-circuit, le fusible, dijoncteur, stabilisateur, prise de terre)"
+                "L'eau dans notre environnement (L'eau dans la nature, test de reconnaissance de l'eau, la floculation, stérilisation, neutralisation)",
+            ] },
+        "3eme": { 
+            maths: [
+                "Calcul littéral (Polynômes, fractions rationnelles, identités remarquables, factorisation, réduction)",
+                "Racines carrées (Définition, propriétés, calcul avec radicaux, expression conjuguée, valeur absolue)",
+                "Calcul numérique (Intervalles, inégalités, encadrements, intersection et réunion d'intervalles)",
+                "Équations et Inéquations dans R (Résolution d'équations produit nul, inéquations du 1er degré, systèmes d'inéquations)",
+                "Équations et Inéquations dans R x R (Systèmes de deux équations par substitution et combinaison, résolution graphique)",
+                "Applications affines (Applications linéaires, coefficient de linéarité, représentation graphique, sens de variation)",
+                "Statistique (Classes d'amplitude, médiane, moyenne, effectifs/fréquences cumulés, diagramme circulaire, polygone)",
+                "Triangle rectangle (Cosinus, Sinus, Tangente, Propriété de Pythagore et sa réciproque, propriétés métriques)",
+                "Propriétés de Thalès (Propriété directe et réciproque dans un triangle, conséquence de Thalès, calcul de distances)",
+                "Angles inscrits (Angle au centre associé, arcs interceptés, égalité de mesures d'angles)",
+                "Vecteurs (Colinéarité, orthogonalité, produit d'un vecteur par un réel, relation de Chasles, vecteur directeur)",
+                "Coordonnées d'un vecteur (Somme de vecteurs, distance de deux points, milieu d'un segment, condition d'orthogonalité)",
+                "Équations de droites (Coefficient directeur, droites parallèles et perpendiculaires, détermination d'équation)",
+                "Pyramides et Cônes (Perspective cavalière, patron, aire latérale, aire totale et volume)"
+            ], 
+            pc: [
+                "Poids et Masse (Relation P = m x g, caractéristiques d'une force)",
+                "Équilibre d'un corps solide soumis à deux forces (Conditions d'équilibre, vecteur force)",
+                "Poussée d'Archimède (Mise en évidence, calcul de l'intensité Pa = ρ x V x g)",
+                "Travail et Puissance mécanique (Calcul de W et P, forces constantes)",
+                "Énergie mécanique (Énergie cinétique, énergie potentielle de pesanteur)",
+                "Les Hydrocarbures : Alcanes (Formule brute, nomenclature du méthane au butane, combustion)",
+                "Action du dioxygène sur les corps simples (Oxydation du fer, du cuivre, du carbone)",
+                "Solutions acides, basiques et neutres (Échelle de pH, indicateurs colorés, dilution)",
+                "Lentilles minces (Lentilles convergentes, foyers, construction de l'image)",
+                "L'œil et ses défauts (Myopie, hypermétropie, correction par les lentilles)",
+                "Puissance et Énergie électrique (Relation P = U x I et E = P x t, le Joule)",
+                "Facture d'électricité (Lecture du compteur, calcul de la consommation, taxes)",
+                "Conducteurs ohmiques (Loi d'Ohm U = R x I, association en série et dérivation)"
+            ] },
         "2ndeC": {
             maths: [
                 "Ensemble des nombres réels (Majorant/Minorant, valeur absolue, intervalles et encadrements)",
@@ -98,15 +185,51 @@
                 "Homothéties (Rapport d'homothétie, centre, alignement et conservation)",
                 "Rotations (Propriété fondamentale, construction d'images, conservation des angles)"
             ],
-            pc: [
-                "Quantité de matière - La Mole (Masse molaire, volume molaire)",
-                "Réactions chimiques (Équations-bilans, bilan de matière)",
-                "Le mouvement (Référentiels, trajectoire, vitesse moyenne et instantanée)",
-                "Forces et Équilibre d'un solide (Poids, tension d'un ressort, poussée d'Archimède)",
-                "Classification périodique des éléments (Familles chimiques, couches électroniques)"
+         pc: [
+                "Quantité de matière - La Mole (Masse molaire, volume molaire, constante d'Avogadro)",
+                "Les solutions aqueuses (Dissolution, concentration massique et molaire, dilution)",
+                "Réactions chimiques (Équations-bilans, réactif limitant, bilan de matière)",
+                "Classification périodique des éléments (Structure de l'atome, couches K L M, familles)",
+                "Le mouvement (Référentiels, trajectoires, vitesse moyenne et instantanée)",
+                "Forces et équilibre (Poids, tension d'un ressort, poussée d'Archimède, moments)",
+                "Lumière et optique (Propagation, réflexion, réfraction, loi de Snell-Descartes)",
+                "Lentilles minces convergentes (Image d'un objet, relation de conjugaison, grandissement)",
+                "Courant électrique et tension (Intensité, loi des nœuds, loi des mailles, oscilloscope)",
+                "Conducteurs ohmiques et Dipôles passifs (Loi d'Ohm, caractéristique U=f(I), association de résistances)",
+                "Les Générateurs (Caractéristique d'un générateur, point de fonctionnement, loi de Pouillet)"
             ]
         },
-        "TerminaleD": { maths: ["Nombres Complexes", "Suites", "Probabilités"], pc: ["Acides/Bases", "RLC", "Projectile"] }
+        "TerminaleD": { 
+            maths: [
+                "Dérivabilité et étude de fonctions (Dérivée composée, bijection réciproque, point d'inflexion, inégalité des accroissements finis, limites)",
+                "Primitives (Primitives des fonctions de référence, formes u'u^n, u'/u^r, u'cos(u), u'sin(u))",
+                "Fonctions Logarithmes (Logarithme népérien ln, propriétés algébriques, limites de référence, dérivée de ln(u), logarithme décimal)",
+                "Fonctions Exponentielles et Puissances (Exponentielle népérienne exp(x), base a, croissance comparée, fonctions puissances x^alpha)",
+                "Calcul intégral (Intégration par parties, changement de variable affine, calcul d'aires et valeur moyenne)",
+                "Suites numériques (Raisonnement par récurrence, convergence des suites monotones, suites récurrentes u_{n+1}=f(u_n), limites)",
+                "Équations différentielles (Résolution des types f'+af=0, f'+af=b, f''+w^2f=0, f''-w^2f=0)",
+                "Nombres complexes (Forme algébrique, trigonométrique, exponentielle, résolution d'équations dans C)",
+                "Similitudes directes du plan (Écriture complexe, centre, rapport et angle de similitude)",
+                "Probabilités (Dénombrement, probabilité conditionnelle, variables aléatoires, loi binomiale)",
+                "Statistiques à deux variables (Nuage de points, ajustement linéaire par la méthode des moindres carrés, corrélation)"
+            ], 
+            pc: [
+                "Alcools, Amines et Acides carboxyliques (Nomenclature, classes, oxydation ménagée)",
+                "Acides α-aminés (Structure, fonction, liaison peptidique, polycondensation)",
+                "Dérivés d'acides et Estérification (Anhydrides, esters, hydrolyse, saponification)",
+                "Acides forts et Bases fortes (Calcul de pH, produit ionique de l'eau Ke)",
+                "Acides faibles et Bases faibles (Constante d'acidité Ka, pKa, domaine de prédominance)",
+                "Réactions Dosage Acido-basique (Équivalence, pH-métrie, indicateurs colorés)",
+                "Cinématique du point (Vecteurs position, vitesse, accélération, équations horaires)",
+                "Mouvements dans un champ de pesanteur (Projectile, chute libre, portée, flèche)",
+                "Mouvement d'une particule chargée (Champ électrique E, force de Lorentz, déflexion)",
+                "Rotation d'un solide autour d'un axe fixe (Moment d'inertie, accélération angulaire, travail)",
+                "Systèmes oscillants mécaniques (Pendule élastique, équation différentielle, période propre)",
+                "Induction électromagnétique (Flux magnétique, loi de Lenz, force électromotrice)",
+                "Auto-induction et Circuit RL (Inductance L, constante de temps, énergie magnétique)",
+                "Oscillations électriques libres - Circuit RLC (Amortissement, décharge du condensateur)",
+                "Radioactivité et Énergie nucléaire (Lois de Soddy, décroissance, défaut de masse)"
+            ] }
     };
 
     let selectedMaths = [];
